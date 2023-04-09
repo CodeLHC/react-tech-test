@@ -2,11 +2,12 @@ import React, {useState} from "react";
 import "../styles/search.css"
 import getImages from "../requests/getImages";
 
-function Search() {
+function Search({setSearchResults}) {
     const [searchText, setSearchText] = useState("")
     const handleSubmit = (event) => {
         event.preventDefault();
-        getImages(searchText)
+        setSearchResults(getImages(searchText))
+        
     }
   return (
    <> <form className="search-form" onSubmit={handleSubmit}>
